@@ -574,6 +574,21 @@ SENSOR_DATA = {
     "post_de_delivered": {},
     "post_de_packages": {},
     "post_de_tracking": {},
+    # Post FR
+    "post_fr_delivering": {
+        "email": ["noreply@notif-colissimo-laposte.info"],
+        "subject": ["Votre colis arrive !"],
+    },
+    "post_fr_exception": {
+        "email": ["noreply@notif-colissimo-laposte.info"],
+        "subject": ["Nous rencontrons un problème dans la livraison de votre colis."],
+    },
+    "post_fr_delivered": {
+        "email": ["noreply@notif-colissimo-laposte.info"],
+        "subject": ["Votre colis a bien été livré !"],
+    },
+    "post_fr_packages": {},
+    "post_fr_tracking": {"pattern": ["[0-9][A-Z][0-9]{11}"]},
 }
 
 # Sensor definitions
@@ -1027,6 +1042,31 @@ SENSOR_TYPES: Final[dict[str, SensorEntityDescription]] = {
         icon="mdi:package-variant-closed",
         key="post_de_packages",
     ),
+    # Post FR
+    "post_fr_delivering": SensorEntityDescription(
+        name="Post FR Delivering",
+        native_unit_of_measurement="package(s)",
+        icon="mdi:truck-delivery",
+        key="post_fr_delivering",
+    ),
+    "post_fr_exception": SensorEntityDescription(
+        name="Post FR Missed Delivery",
+        native_unit_of_measurement="package(s)",
+        icon="mdi:truck-alert",
+        key="post_fr_exception",
+    ),
+    "post_fr_delivered": SensorEntityDescription(
+        name="Post FR Delivered",
+        native_unit_of_measurement="package(s)",
+        icon="mdi:package-variant",
+        key="post_fr_delivered",
+    ),
+    "post_fr_packages": SensorEntityDescription(
+        name="Post FR Packages",
+        native_unit_of_measurement="package(s)",
+        icon="mdi:package-variant-closed",
+        key="post_fr_packages",
+    ),
     ###
     # !!! Insert new sensors above these two !!!
     ###
@@ -1102,4 +1142,5 @@ SHIPPERS = [
     "purolator",
     "intelcom",
     "post_nl",
+    "post_fr"
 ]
