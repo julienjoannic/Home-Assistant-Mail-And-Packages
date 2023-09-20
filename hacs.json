@@ -1,5 +1,5 @@
 {
-    "name": "Mail and Packages",
+    "name": "Mail and Packages JJC",
     "domains": [ "camera", "sensor" ],
     "homeassistant": "0.109.0",
     "iot_class": "Cloud Polling",
